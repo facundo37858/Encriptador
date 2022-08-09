@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="container">
-        <img src="./logo.svg" alt="logo" height="48" width="32" />
-        
-        
+        <div class="container-logo">
+            <img src="./logo.svg" alt="logo" height="48" width="32" />
+        </div>
+                       
         <div class="textarea-input">
             <textarea oninput="getMensaje()" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
             <div class="container-btn">
@@ -23,12 +24,18 @@
             </div>
         </div>
         
-        
+        <div class="conteiner-aux">
+            <div class="container-msjEncrip">
+                
+                <textarea name="mensajeEncrip" id="mensajeEncrip" cols="30" rows="10" readonly></textarea>
+                <button id="copy" onclick="copyToClickBoard()" disabled>Copiar</button>
+            </div>
+            <!-- <div class="container-sinMsjEncrip">
+                <img id='muheco' src="./muñeco.svg" alt="muñeco" >
+                <p>Ningún mensaje fue encontrado</p>
+                <p>Ingresa el texto que desees encriptar o desencriptar. </p>
+            </div> -->
 
-        <div class="container-msjEncrip">
-            <img src="./muñeco.svg" alt="muñeco" height="304" width="336">
-            <textarea name="mensajeEncrip" id="mensajeEncrip" cols="30" rows="10" readonly></textarea>
-            <button id="copy" onclick="copyToClickBoard()" disabled>Copiar</button>
         </div>
  
 
