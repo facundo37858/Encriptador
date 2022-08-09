@@ -28,18 +28,47 @@ function desEncriparMensaje() {
 
 function showMensajeEncrip() {
   let showMensajeEncrip = document.getElementById("mensajeEncrip");
-  showMensajeEncrip.value = encriparMensaje();
+  let buttonCopy=document.getElementById('copy')
+  if(showMensajeDesEncrip.value !=''){
+    console.log(buttonCopy)
+    buttonCopy.disabled = false;
+    showMensajeEncrip.value = encriparMensaje();
+  }
+  // showMensajeEncrip.value = encriparMensaje();
 }
 
 function showMensajeDesEncrip() {
     let showMensajeEncrip = document.getElementById("mensajeEncrip");
-    showMensajeEncrip.value = desEncriparMensaje();
+    let buttonCopy=document.getElementById('copy')
+    if(showMensajeDesEncrip.value !=''){
+      console.log(buttonCopy)
+      buttonCopy.disabled = false;
+      showMensajeEncrip.value = desEncriparMensaje();
+    }
+    // showMensajeEncrip.value = desEncriparMensaje();
   }
 function limpiarText() {
   let inputClear=document.getElementById('mensaje')
   let inputClear2=document.getElementById("mensajeEncrip")
+  let buttonCopy=document.getElementById('copy')
   
   inputClear.value=''
   inputClear2.value=''
+  buttonCopy.disabled = true;
   return
 }
+function copyToClickBoard(){
+  var content = document.getElementById('mensajeEncrip').value;
+  console.log(content)
+
+  navigator.clipboard.writeText(content)
+      .then(() => {
+      console.log("Text copied to clipboard...")
+  })
+      .catch(err => {
+      console.log('Something went wrong', err);
+  })
+
+}
+
+
