@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
     <title>Encriptador</title>
     <script async src="./index.js"></script>
 </head>
 <body>
+    <div class="container">
+        <img src="./logo.svg" alt="logo" height="48" width="32" />
+        
+        
+        <div class="textarea-input">
+            <textarea oninput="getMensaje()" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <div class="container-btn">
+                <button onclick="showMensajeEncrip()" >Encriptar</button>
+                <button onclick="showMensajeDesEncrip()">Desencriptar</button>
+                <button onclick="limpiarText()" >Limpiar</button>
     
-    <textarea oninput="getMensaje()" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
-    <textarea name="mensajeEncrip" id="mensajeEncrip" cols="30" rows="10" readonly></textarea>
-    <button onclick="showMensajeEncrip()" >Encriptar</button>
-    <button onclick="showMensajeDesEncrip()">Desencriptar</button>
-    <button onclick="limpiarText()" >Limpiar</button>
+            </div>
+        </div>
+        
+        
+
+        <div class="container-msjEncrip">
+            <img src="./muñeco.svg" alt="muñeco" height="304" width="336">
+            <textarea name="mensajeEncrip" id="mensajeEncrip" cols="30" rows="10" readonly></textarea>
+            <button id="copy" onclick="copyToClickBoard()" disabled>Copiar</button>
+        </div>
+ 
+
+    </div>
+ 
 
 
     
