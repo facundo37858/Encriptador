@@ -11,32 +11,42 @@
 <body>
     <div class="container">
         <div class="container-logo">
-            <img src="./logo.svg" alt="logo" height="48" width="32" />
+            <img class="logo" src="./logo.svg" alt="logo" height="48" width="32" />
         </div>
                        
         <div class="textarea-input">
-            <textarea oninput="getMensaje()" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <textarea placeholder="Ingrese el texto aqui" oninput="getMensaje()" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <div class="aviso">
+                 <img src="./antecion.svg" alt="aviso">
+                  Solo letras minúsculas y sin acentos
+            </div>
             <div class="container-btn">
-                <button onclick="showMensajeEncrip()" >Encriptar</button>
-                <button onclick="showMensajeDesEncrip()">Desencriptar</button>
-                <button onclick="limpiarText()" >Limpiar</button>
+                <button class="btn" onclick="showMensajeEncrip()" >Encriptar</button>
+                <button class="btn" onclick="showMensajeDesEncrip()">Desencriptar</button>
+                <button class="btn" onclick="limpiarText()" >Limpiar</button>
     
             </div>
         </div>
         
         <div class="conteiner-aux">
-            <div class="container-msjEncrip">
-                
-                <textarea name="mensajeEncrip" id="mensajeEncrip" cols="30" rows="10" readonly></textarea>
-                <button id="copy" onclick="copyToClickBoard()" disabled>Copiar</button>
+            <div class="container-msjEncrip" style ="display: none;">
+                <textarea name="mensajeEncrip" class="mensajeEncrip" cols="30" rows="10" readonly></textarea>
+                <button class="btn-copy" id="copy" onclick="copyToClickBoard()" disabled>Copiar</button>
             </div>
-            <!-- <div class="container-sinMsjEncrip">
-                <img id='muheco' src="./muñeco.svg" alt="muñeco" >
-                <p>Ningún mensaje fue encontrado</p>
+            <div class="container-sinMsjEncrip" >
+                <img id='muheco' src="./muñeco.svg" alt="muheco" >
+                <p class="parrafo">Ningún mensaje fue encontrado</p>
                 <p>Ingresa el texto que desees encriptar o desencriptar. </p>
-            </div> -->
+            </div>
 
         </div>
+
+        <section class="modal ">
+            <div class="modal-container">
+                <h2 class="modal-titulo">Copiado en portapapeles</h2>
+                <!-- <a href="#" class="cerrar_modal">X</a> -->
+            </div>
+        </section>
  
 
     </div>

@@ -1,6 +1,7 @@
 function getMensaje() {
     console.log('oooooo')
   const mensaje = document.querySelector("#mensaje").value;
+  console.log(mensaje)
   return mensaje;
 }
 
@@ -27,10 +28,16 @@ function desEncriparMensaje() {
 
 
 function showMensajeEncrip() {
-  let showMensajeEncrip = document.getElementById("mensajeEncrip");
+  let mensaje = document.querySelector("#mensaje").value;
+  let showMensajeEncrip = document.getElementsByClassName("mensajeEncrip")[0];
+
   let buttonCopy=document.getElementById('copy')
-  if(showMensajeDesEncrip.value !=''){
+ 
+  console.log('value',mensaje)
+  if(mensaje){
     console.log(buttonCopy)
+    document.getElementsByClassName('container-msjEncrip')[0].style.display="flex"
+    document.getElementsByClassName('container-sinMsjEncrip')[0].style.display="none"
     buttonCopy.disabled = false;
     showMensajeEncrip.value = encriparMensaje();
   }
@@ -38,10 +45,13 @@ function showMensajeEncrip() {
 }
 
 function showMensajeDesEncrip() {
-    let showMensajeEncrip = document.getElementById("mensajeEncrip");
+    let mensaje = document.querySelector("#mensaje").value;
+    let showMensajeEncrip = document.getElementsByClassName("mensajeEncrip")[0];
     let buttonCopy=document.getElementById('copy')
-    if(showMensajeDesEncrip.value !=''){
+    if(mensaje){
       console.log(buttonCopy)
+      document.getElementsByClassName('container-msjEncrip')[0].style.display="flex"
+    document.getElementsByClassName('container-sinMsjEncrip')[0].style.display="none"
       buttonCopy.disabled = false;
       showMensajeEncrip.value = desEncriparMensaje();
     }
@@ -49,20 +59,25 @@ function showMensajeDesEncrip() {
   }
 function limpiarText() {
   let inputClear=document.getElementById('mensaje')
-  let inputClear2=document.getElementById("mensajeEncrip")
+  let inputClear2=document.getElementsByClassName("mensajeEncrip")[0]
   let buttonCopy=document.getElementById('copy')
   
   inputClear.value=''
   inputClear2.value=''
+  document.getElementsByClassName('container-msjEncrip')[0].style.display="none"
+  document.getElementsByClassName('container-sinMsjEncrip')[0].style.display="flex"
   buttonCopy.disabled = true;
   return
 }
 function copyToClickBoard(){
-  var content = document.getElementById('mensajeEncrip').value;
+  var content = document.getElementsByClassName('mensajeEncrip')[0].value;
+  var modal = document.querySelector('.modal');
   console.log(content)
 
   navigator.clipboard.writeText(content)
       .then(() => {
+        modal.classList.add('modal--show');
+        setTimeout(()=>{modal.classList.remove('modal--show')},1000)
       console.log("Text copied to clipboard...")
   })
       .catch(err => {
@@ -70,5 +85,6 @@ function copyToClickBoard(){
   })
 
 }
+
 
 
